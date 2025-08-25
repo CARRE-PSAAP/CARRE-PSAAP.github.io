@@ -1,0 +1,33 @@
+{% assign h = include.hero | default: include %}
+<section
+  class="hero position-relative overflow-hidden"
+  style="
+    --hero-image: url('{{ h.image | relative_url }}');
+    --hero-height: {{ h.height | default: '75vh' }};
+    --hero-overlay-gradient: {{ h.overlay_gradient | default: 'none' }};
+    --hero-filter: {{ h.filter | default: 'none' }};
+    --hero-position: {{ h.position | default: 'center center' }};
+  "
+  aria-label="{{ h.alt | default: h.title }}"
+  >
+  <div class="hero-bg"></div>
+
+  <!-- Curved cutout -->
+   <svg class="hero-curve" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <!-- Sides high (y≈0), middle low (y≈80): concave valley -->
+     <path d="M0,0 C300,80 900,80 1200,0 L1200,120 L0,120 Z"></path>
+    </svg>
+
+  <div class="container h-100 position-relative z-2">
+    <div class="row h-100">
+      <div class="col-12 d-flex flex-column justify-content-center text-{{ h.align | default: 'center' }} py-5">
+        {% if h.kicker %}<p class="text-white-50 mb-2 text-uppercase large letter-spacing-1">{{ h.kicker }}</p>{% endif %}
+        <h1 class="hero-title fw-bold text-white mb-3">{{ h.title }}</h1>
+        {% if h.subtitle %}<p class="llead hero-subtitle text-white-50 mb-4">{{ h.subtitle }}</p>{% endif %}
+        {% if h.cta_text and h.cta_url %}
+          <a class="btn btn-primary btn-lg" href="{{ h.cta_url | relative_url }}">{{ h.cta_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+{% assign s = include.section | default: include %}
+<section
+  id="{{ s.id | default: 'features' }}"
+  class="feature-tiles position-relative overflow-hidden {{ s.mt }} {{ s.mb }}"
+  aria-labelledby="{{ s.id | default: 'features' }}-title"
+  style="
+    --section-bg: {{ s.bg | default: '#0b1b2b' }};
+    --section-overlay: {{ s.overlay | default: 'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.75) 100%)' }};
+    --section-image: {% if s.bg_image %}url('{{ s.bg_image | relative_url }}'){% else %}none{% endif %};
+    --accent: {{ s.accent | default: '#e8552b' }}; /* heading color on tiles */
+    --tile-bg: {{ s.tile_bg | default: '#eef1f4' }};
+    --icon-size: {{ s.icon_size | default: '3.25rem' }};
+    --icon-size-top: {{ s.icon_size_top | default: 'var(--icon-size)' }};
+    --icon-size-bottom: {{ s.icon_size_bottom | default: 'calc(var(--icon-size) * .85)' }};
+    --icon-gap: {{ s.icon_gap | default: '.4rem' }};
+    --icon-overlap: {{ s.icon_overlap | default: '0' }};
+    --icon-gap-x: {{ s.icon_gap_x | default: '.5rem' }};
+  "
+  data-bg="{% if s.bg_image %}image{% else %}color{% endif %}"
+>
+  <div class="container position-relative z-1 py-5">
+    {% if s.title %}
+      <h2 id="{{ s.id | default: 'features' }}-title" class="display-6 fw-semibold text-light text-center mb-4">
+        {{ s.title }}
+      </h2>
+    {% endif %}
+
+    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+      {% for item in s.items %}
+      <div class="col d-flex">
+        {% if item.url %}
+        <a class="tile card text-decoration-none text-reset w-100" href="{{ item.url | relative_url }}">
+        {% else %}
+        <div class="tile card w-100" aria-disabled="true">
+        {% endif %}
+          <div class="card-body p-4 text-center">
+            {% comment %} Icon renderer: image > stack (overlay/vertical) > single {% endcomment %}
+            {% if item.icon_img %}
+              <img src="{{ item.icon_img | relative_url }}" alt="" class="tile-icon-img mb-3" width="64" height="64" loading="lazy">
+            {% elsif item.icon_stack %}
+              {% assign stack = item.stack | default: 'vertical' | downcase %}
+              
+              {% if stack == 'overlay' %}
+              <span class="icon-stack overlay d-inline-block mx-auto mb-3"
+                  aria-hidden="true"
+                  style="
+                    {% if item.size_back %}--icon-size-back: {{ item.size_back }};{% endif %}
+                    {% if item.size_front %}--icon-size-front: {{ item.size_front }};{% endif %}
+                    {% if item.front_tx %}--front-tx: {{ item.front_tx }};{% endif %}
+                    {% if item.front_ty %}--front-ty: {{ item.front_ty }};{% endif %}
+                    {% if item.front_rot %}--front-rot: {{ item.front_rot }};{% endif %}
+                    {% if item.front_origin %}--front-origin: {{ item.front_origin }};{% endif %}
+                  "
+              >
+                <i class="{{ item.icon_stack[0] }} back"></i>
+                <i class="{{ item.icon_stack[1] }} front"></i>
+              </span>
+
+              {% elsif stack == 'horizontal' or stack == 'h' %}
+
+              <span
+                class="icon-stack h d-inline-flex align-items-center mx-auto mb-3"
+                aria-hidden="true"
+                style="
+                  {% if item.gap_x or item.gap %}--icon-gap-x: {{ item.gap_x | default: item.gap }};{% endif %}
+                  {% if item.size_left %}--icon-size-left: {{ item.size_left }};{% endif %}
+                  {% if item.size_right %}--icon-size-right: {{ item.size_right }};{% endif %}
+                  {% if item.left_ty %}--left-ty: {{ item.left_ty }};{% endif %}
+                  {% if item.right_ty %}--right-ty: {{ item.right_ty }};{% endif %}
+                "
+              >
+                <!-- order: LEFT, RIGHT -->
+                <i class="{{ item.icon_stack[0] }} left"></i>
+                <i class="{{ item.icon_stack[1] }} right"></i>
+              </span>
+
+              {% else %}
+
+              <span class="icon-stack v d-inline-flex flex-column align-items-center mx-auto mb-3"
+                  aria-hidden="true"
+                  style="
+                    {% if item.gap %}--icon-gap: {{ item.icon_gap }};{% endif %}
+                    {% if item.overlap %}--icon-overlap: {{ item.overlap }};{% endif %}
+                    {% if item.size_top %}--icon-size-top: {{ item.size_top }};{% endif %}
+                    {% if item.size_bottom %}--icon-size-bottom: {{ item.size_bottom }};{% endif %}
+                  "
+              >
+                <i class="{{ item.icon_stack[0] }} top"></i>
+                <i class="{{ item.icon_stack[1] }} bottom"></i>
+              </span>
+              {% endif %}
+
+            {% elsif item.icon %}
+              <!-- Use Bootstrap Icons or any icon font -->
+              <i class="{{ item.icon }} tile-icon mb-3" aria-hidden="true"></i>
+            {% endif %}
+            <h3 class="h4 fw-semibold mb-0" style="color: var(--accent)">{{ item.title }}</h3>
+            {% if item.text %}<p class="text-secondary mt-2 mb-0">{{ item.text }}</p>{% endif %}
+            {% if item.url %}<span class="stretched-link" aria-hidden="true"></span>{% endif %}
+          </div>
+        {% if item.url %}</a>{% else %}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

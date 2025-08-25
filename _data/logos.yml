@@ -1,0 +1,28 @@
+- name: "Oregon State University"
+  src: /assets/images/logos/osu-logo.png
+  url: https://oregonstate.edu
+  alt: "Oregon State University"
+- name: "Vanderbilt University"
+  src: /assets/images/logos/vanderbilt-logo.svg
+  url: https://www.vanderbilt.edu
+  alt: "Vanderbilt University"
+- name: "North Carolina State University"
+  src: /assets/images/logos/ncsu-logo.png
+  url: https://www.ncsu.edu
+  alt: "North Carolina State University"
+- name: "University of California San Diego"
+  src: /assets/images/logos/ucsd-logo.svg
+  url: https://ucsd.edu
+  alt: "University of California San Diego"
+- name: "University of Notre Dame"
+  src: /assets/images/logos/nd-logo.png
+  url: https://www.nd.edu
+  alt: "University of Notre Dame"
+- name: "Seattle University"
+  src: /assets/images/logos/su-logo.png
+  url: https://www.seattleu.edu
+  alt: "Seattle University"
+- name: "University of California, Berkeley"
+  src: /assets/images/logos/ucb-logo.svg
+  url: https://www.berkeley.edu
+  alt: "University of California, Berkeley"

@@ -1,0 +1,199 @@
+- name: Todd Palmer
+  photo: todd-palmer.jpg
+  title: CARRE Director
+  job: University Distinguished Professor, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/todd-palmer
+  email: todd.palmer@oregonstate.edu
+  number_educ: 3
+  education1: Ph.D. Nuclear Engineering and Scientific Computing, University of Michigan (1993)
+  education2: M.S. Nuclear Engineering, Oregon State University (1988)
+  education3: B.S. Nuclear Engineering, Oregon State University (1987)
+
+- name: Robert Reed
+  photo: robert-reed.jpg
+  title: CARRE Deputy Director
+  job: Professor, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  link: https://www.vanderbilt.edu/vinse/personnel/?bio=robert%20reed
+  email: robert.reed@vanderbilt.edu
+  number_educ: 3
+  education1: Ph.D., Clemson University
+  education2: M.S., Clemson University
+  education3: B.S., East Tennessee State University
+
+- name: Kyle Niemeyer
+  photo: kyle-niemeyer.jpg
+  title: Exascale Software Engineering Lead & Education Crosscut Co-Lead
+  job: Associate Professor, Mechanical Engineering
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/kyle-niemeyer
+  email: kyle.niemeyer@oregonstate.edu
+  number_educ: 3
+  education1: PhD, Mechanical Engineering, Case Western Reserve University (2014)
+  education2: MS, Aerospace Engineering (2010)
+  education3: BS, Aerospace Engineering (2009)
+
+- name: Dmitriy Anistratov
+  photo: dmitriy-anistratov.jpg
+  title: Transport Algorithms Lead
+  job: Professor of Nuclear Engineering
+  affiliation: North Carolina State University
+  link: https://ne.ncsu.edu/people/dyanistr/
+  email: anistratov@ncsu.edu
+  number_educ: 2
+  education1: PhD, Mathematical and Physical Sciences, Institute for Mathematical Modeling, Russian Academy of Sciences (1993)
+  education2: MS, Physics, Moscow Institute of Physics and Technology (1985)
+
+- name: James Trippe
+  photo: james-trippe.png
+  title: Experimental Design and Execution Lead
+  job: Senior Staff Researcher, Vanderbilt Institute for Space Defense & Electronics
+  affiliation: Vanderbilt University
+  link: https://www.linkedin.com/in/james-trippe-b18065325/
+  email: James.m.trippe@vanderbilt.edu
+  number_educ: 0
+  #education1: PhD, Mathematical and Physical Sciences, Institute for Mathematical Modeling, Russian Academy of Sciences (1993)
+  #education2: MS, Physics, Moscow Institute of Physics and Technology (1985)
+
+- name: Lizhong Chen
+  photo: lizhong-chen.jpg
+  title: AI/ML Crosscut Lead
+  job: Associate Professor, Electrical Engineering and Computer Science
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/lizhong-chen
+  email: chenliz@oregonstate.edu
+  number_educ: 3
+  education1: PhD, Computer Engineering, University of Southern California (2014)
+  education2: MS, Physics, Electrical Engineering, University of Southern California (2011)
+  education3: BS, Electrical Engineering, Zhejiang University (2009)
+
+- name: Camille Palmer
+  photo: camille-palmer.jpg
+  title: Predictive Science Crosscut Lead
+  job: Professor, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/camille-palmer
+  email: camille_palmer@oregonstate.edu
+  number_educ: 3
+  education1: Ph.D., Nuclear and Radiological Engineering, University of Cincinnati, (2003)
+  education2: M.S., Health Physics, University of Cincinnati (1999)
+  education3: B.S., Radiation Health Physics, Oregon State University (1997)
+
+- name: Madicken Munk
+  photo: madicken-munk.jpg
+  title: Education Crosscut Co-Lead
+  job: Assistant Professor, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/madicken-munk
+  email: madicken.munk@oregonstate.edu
+  number_educ: 3
+  education1: Ph.D., Nuclear Engineering, University of California Berkeley, (2017)
+  education2: M.S., Nuclear Engineering, University of California Berkeley, (2013)
+  education3: B.S., Nuclear Engineering, Oregon State University (2011)
+
+- name: Sankdaran Mahadevan
+  photo: sankdaran-mahadevan.jpg
+  title: Co-PI
+  job: Professor of Engineering
+  affiliation: Vanderbilt University
+  link: https://engineering.vanderbilt.edu/bio/?pid=sankaran-mahadevan
+  email: sankaran.mahadevan@vanderbilt.edu
+
+- name: Anil Prinja
+  photo: anil-prinja.jpg
+  title: Co-PI
+  job: 
+  affiliation: University of New Mexico
+  link: https://ne.unm.edu/faculty-staff/faculty-profiles/anil-prinja.html
+  email: prinja@unm.edu
+
+- name: Ilham Variansyah
+  photo: ilham-variansyah.jpg
+  title: Co-PI
+  job: Assistant Professor (Senior Research), Nuclear Science and Engineering
+  affiliation: Oregon State University
+  link: https://engineering.oregonstate.edu/people/ilham-variansyah
+  email: ilham.variansyah@oregonstate.edu
+
+- name: Braxton Cuneo
+  photo: braxton-cuneo.jpg
+  title: Co-PI
+  job: Assistant Professor, Computer Science
+  affiliation: Seattle University
+  link: https://www.seattleu.edu/directory/profiles/braxton-cuneo.php
+  email: bcuneo@seattleu.edu
+
+- name: Nate Kremer-Herman
+  photo: bio-photo.png
+  title: Co-PI
+  job: Assistant Professor, Computer Science
+  affiliation: Seattle University
+  link: https://www.seattleu.edu/directory/profiles/nate-kremer-herman.php
+  email: nkh@seattleu.edu
+
+- name: Amitava Majumdar
+  photo: amitava-majumdar.jpg
+  title: Co-PI
+  job: Division Director, San Diego Supercomputer Center
+  affiliation: UC San Diego
+  link: https://www.linkedin.com/in/amitava-majumdar-332702299/
+  email: majumdar@sdsc.edu
+
+- name: C. Tim Kelley
+  photo: ct-kelley.jpg
+  title: Co-PI
+  job: Professor, 
+  affiliation: NC State
+  link: https://ctkelley.github.io
+  email: ctk@ncsu.edu
+
+- name: Brian Sierawski
+  photo: brian-sierawski.jpg
+  title: Co-PI
+  job: Research Associate Professor, Electrical Engineering
+  affiliation: Vanderbilt University
+  link: https://my.vanderbilt.edu/briansierawski/
+  email: brian.sierawski@Vanderbilt.Edu
+
+- name: Boris Kramer
+  photo: boris-kramer.jpg
+  title: Co-PI
+  job: Assistant Professor, Mechanical and Aerospace Engineering
+  affiliation: UC San Diego
+  link: https://jacobsschool.ucsd.edu/people/profile/boris-kramer
+  email: bmkramer@ucsd.edu
+
+- name: Daniel Siefman
+  photo: daniel-siefman.jpg
+  title: Co-PI
+  job: Assistant Professor, Nuclear Engineering
+  affiliation: UC Berkeley
+  link: https://nuc.berkeley.edu/people/daniel-siefman/
+  email: daniel.siefman@berkeley.edu
+
+- name: Mahidhar Tatineni
+  photo: mahidhar-tatineni.jpg
+  title: Co-PI
+  job: User Support Group Lead, San Diego Supercomputer Center
+  affiliation: UC San Diego
+  link: https://www.linkedin.com/in/mahidhar-tatineni-5585a413/
+  email: mahidhar@sdsc.edu
+
+- name: Paul Rodriguez
+  photo: paul-rodriguez.jpg
+  title: Co-PI
+  job: Research Analyst, San Diego Supercomputer Center
+  affiliation: UC San Diego
+  link: https://profiles.ucsd.edu/paul.rodriguez
+  email: prodriguez@sdsc.edu
+
+- name: "This could be you !"
+  photo: bio-photo.png
+  title: See <a href="http://www.allanlab.org/vacancies">openings</a> for more info
+  affiliation: 
+  email: Todd.Palmer@oregonstate.edu
+  number_educ: 0
+  education1:
+  education2:
+  education3:

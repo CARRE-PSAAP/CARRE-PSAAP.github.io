@@ -1,0 +1,27 @@
+{% assign s = include.section | default: include %}
+<section class="logos py-5 {{ s.mt }} {{ s.mb }}">
+  <div class="container">
+    {% if s.title %}
+      <h2 class="display-6 fw-semibold text-center mb-4">{{ s.title }}</h2>
+    {% endif %}
+
+    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  justify-content-center">
+      {% for l in site.data.logos %}
+      <div class="col">
+        {% if l.url %}<a class="d-block text-decoration-none" href="{{ l.url }}" target="_blank" rel="noopener">{% endif %}
+          <!-- <div class="ratio ratio-4x3"> -->
+          <div class="ratio" style="--bs-aspect-ratio: {{ s.ratio | default: '90%' }};">
+            <img
+              src="{{ l.src | relative_url }}"
+              alt="{{ l.alt | default: l.name }}"
+              class="w-100 h-100 object-fit-contain logo-img"
+              loading="lazy"
+              {% if l.width and l.height %}width="{{ l.width }}" height="{{ l.height }}"{% endif %}
+            >
+          </div>
+        {% if l.url %}</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

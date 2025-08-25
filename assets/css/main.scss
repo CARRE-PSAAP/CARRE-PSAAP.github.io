@@ -1,0 +1,421 @@
+---
+---
+    
+
+.hero {
+  min-height: var(--hero-height);
+  position: relative;
+}
+
+.hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;                 /* background sits behind */
+  pointer-events: none;
+  /* Top layer: gradient; Bottom layer: image */
+  background-image: var(--hero-overlay-gradient), var(--hero-image);
+  background-size: cover, cover;
+  background-position: var(--hero-position), var(--hero-position);
+  background-repeat: no-repeat, no-repeat;
+  filter: var(--hero-filter); // optional e.g., 'brightness(.95) contrast(1.05)'
+  transform: translateZ(0);
+}
+
+/* Curve overlay that hides (“cuts out”) bottom of the image */
+.hero .hero-curve{
+  position: absolute; left: 0; right: 0; bottom: -1px; /* hide any seam */
+  width: 100%;
+  height: var(--hero-curve-height, clamp(48px, 9vw, 140px));
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+}
+.hero .hero-curve path{
+  /* Match to the background of the NEXT section for a seamless transition */
+  fill: var(--hero-curve-fill, var(--bs-body-bg));
+}
+
+/* Ensure text is above the curve */
+.hero .z-2 { z-index: 2; position: relative; }
+
+/* Big, fluid hero heading */
+.hero .hero-title{
+  font-size: clamp(2.25rem, calc(6vw + 0.5rem), 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Larger subtitle */
+.hero .hero-subtitle{
+  font-size: clamp(1.125rem, calc(1.6vw + 0.5rem), 2rem);
+  line-height: 1.4;
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+/* Crop wrapper fills column height; hides overflow (top/bottom trimmed) */
+.img-crop { height: 100%; overflow: hidden; border-radius: .5rem; }
+
+/* object-fit utility (Bootstrap doesn't ship one for cover+position) */
+.of-cover { display:block; width:100%; height:100%; object-fit:cover; object-position:center var(--y, 50%); }
+
+
+/* Control the vertical focal point (0% = top, 50% = center, 100% = bottom) */
+.img-crop img{
+  object-position: center var(--y, 50%);
+}
+
+.equal-row { display:grid; grid-template-columns: 1fr; gap: var(--bs-gutter-y,1rem) var(--bs-gutter-x,1rem); }
+@media (min-width: 992px){ .equal-row { grid-template-columns: 1fr 1fr; } }
+
+/* Optional: make the container a bit wider on huge screens */
+@media (min-width: 1400px){
+  .hero .container{ max-width: 1320px; }
+}
+
+@media (max-width: 576px){
+  .hero { min-height: 56vh; }   /* still pinned to top, so bottom trims */
+}
+
+/* optional: keep the image from getting too tall on phones */
+@media (max-width: 576px){
+  .img-crop { max-height: clamp(220px, 40vh, 420px); }
+}
+
+/* If your gradient is dark, a subtle text shadow can help contrast */
+.hero .hero-title,
+.hero .hero-subtitle{
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+/* Section background: color OR image+overlay */
+.feature-tiles { background: var(--section-bg); }
+.feature-tiles[data-bg="image"]::before{
+  content:"";
+  position:absolute; inset:0; z-index:0;
+  background-image: var(--section-overlay), var(--section-image);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  filter: none;
+}
+.feature-tiles .container{ position:relative; z-index:1; }
+
+/* Tile look + hover */
+.tile{
+  border: 0;
+  border-radius: 1rem;
+  background: var(--tile-bg);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+  transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
+}
+.tile::after{ /* subtle “page edge” highlight */
+  content:"";
+  position:absolute; inset:0;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 120% at 10% 0%, rgba(0,0,0,.15) 0%, transparent 60%) top left / 60% 60% no-repeat,
+    radial-gradient(120% 120% at 100% 95%, rgba(0,0,0,.15) 0%, transparent 60%) bottom right / 70% 60% no-repeat;
+  pointer-events:none;
+  opacity:.35;
+}
+.tile:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.22); }
+
+.tile-icon{ font-size: 3rem; color: #2f4053; display:inline-block; }
+.tile-icon-img{ width:64px; height:64px; object-fit: contain; }
+
+/* Spacing tweaks */
+.feature-tiles .card-body{ min-height: 220px; display:flex; flex-direction:column; justify-content:center; }
+
+/* Dark backgrounds: keep good contrast */
+.feature-tiles .text-secondary{ color: rgba(34,51,68,.9) !important; }
+
+
+
+/* Single icons (e.g., <i class="bi ... tile-icon">) */
+/* Single icons still use --icon-size */
+.tile-icon{
+  font-size: var(--icon-size, 3.25rem);     /* bump this to make all bigger */
+  line-height: 1;
+}
+
+.tile .icon-stack{
+  display: inline-flex;           /* works for both variants */
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;            /* centers the span itself */
+}
+
+.icon-stack.overlay{
+  --icon-size-back: 3.4rem;
+  --icon-size-front: 2.8rem;
+  --front-tx: 18%;
+  --front-ty: 18%;
+  --front-rot: -8deg;
+  --front-origin: 50% 50%;
+  position: relative;
+  display: inline-block;
+  width: var(--icon-size-back);
+  height: var(--icon-size-back);
+}
+.icon-stack.overlay .bi{
+  position: absolute;
+  inset: 0;
+  line-height: 1;
+}
+.icon-stack.overlay .back{
+  font-size: var(--icon-size-back);
+  color: #2f4053;
+  opacity: .55;
+  transform: none;
+}
+.icon-stack.overlay .front{
+  font-size: var(--icon-size-front);
+  color: var(--accent, #e8552b);
+  transform-origin: var(--front-origin);
+  transform: translate(var(--front-tx), var(--front-ty)) rotate(var(--front-rot));
+}
+
+
+/* --- Vertical duo (one above the other) --- */
+/* Vertical duo sizing + spacing */
+.icon-stack.v{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--icon-gap, .4rem);       /* use 0 to remove built-in space */
+}
+.icon-stack.v .bi{
+  position: static; inset: auto; transform: none; 
+  line-height: 1;
+  margin: 0;
+}
+.icon-stack.v .top{
+  font-size: var(--icon-size-top, var(--icon-size, 3.25rem));
+}
+.icon-stack.v .bottom{
+  font-size: var(--icon-size-bottom,
+                 calc(var(--icon-size-top, var(--icon-size, 3.25rem)) * .85));
+  /* bring it closer than gap allows; negative values pull upward */
+  margin-top: var(--icon-overlap, 0);
+}
+
+@media (min-width: 1200px){
+  .feature-tiles{
+    --icon-size: 4.25rem;
+    --icon-size-top: 4rem;
+    --icon-size-bottom: 3.5rem;
+    --icon-gap: .6rem;
+  }
+}
+
+/* Horizontal duo */
+.icon-stack.h{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--icon-gap-x, .5rem);   /* control horizontal space */
+  margin-inline: auto;             /* center in the tile */
+}
+.icon-stack.h .left,
+.icon-stack.h .right{
+  line-height: 1;
+}
+.icon-stack.h .left{
+  font-size: var(--icon-size-left, var(--icon-size, 3.25rem));
+  transform: translateY(var(--left-ty, 0));   /* optional vertical nudge */
+}
+.icon-stack.h .right{
+  font-size: var(--icon-size-right, var(--icon-size, 3.25rem));
+  transform: translateY(var(--right-ty, 0));  /* optional vertical nudge */
+}
+
+
+/* Navbar search: collapsed by default, expands on toggle */
+.navbar .search-form { position: relative; }
+/* default: no outline/border/shadow */
+.navbar .search-toggle{
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  color: var(--bs-navbar-color);                /* default text color */
+}
+
+.navbar .search-toggle:hover{
+  color: var(--bs-navbar-hover-color);
+  text-decoration: none;
+}
+
+.navbar .search-form.open .search-toggle,
+.navbar .search-toggle:focus{
+  box-shadow: none;
+  color: var(--bs-navbar-active-color);
+}
+
+.navbar .search-input{
+  width: 0;
+  min-width: 0;
+  opacity: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  transition: width .25s ease, opacity .2s ease, padding .25s ease, border-color .25s;
+}
+
+.navbar .search-form.open .search-input{
+  width: 16rem;                 /* adjust */
+  opacity: 1;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  border: 1px solid var(--bs-border-color-translucent);
+  margin-right: .25rem;
+  border-radius: .375rem;
+}
+
+.navbar[data-bs-theme="dark"] .search-input::placeholder{
+  color: rgba(255,255,255,.75);
+}
+
+/* keep an accessible ring for keyboard users only */
+.navbar .search-toggle:focus-visible{
+  outline: 2px solid rgba(255,255,255,.7);
+  outline-offset: 2px;
+  border-radius: .375rem;
+}
+
+/* optional hover color tweak on dark navs */
+.navbar[data-bs-theme="dark"] .search-toggle:hover{
+  color: rgba(255,255,255,.85);
+}
+
+@media (max-width: 576px){
+  .navbar .search-form.open .search-input{ width: 11rem; }
+}
+
+/* Background: solid color OR image + overlay */
+.quote-callout { color: var(--quote-color); background: var(--quote-bg); }
+.quote-callout .qc-bg{
+  position:absolute; inset:0; z-index:0;
+  background-image: var(--quote-overlay), var(--quote-image);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  pointer-events:none;
+}
+
+/* The quote text */
+.qc-text{
+  margin: 0 auto 1rem;
+  max-width: var(--quote-maxw);
+  font-size: clamp(1.5rem, calc(2.4vw + 0.6rem), 2.4rem);
+  line-height: 1.25;
+  font-weight: 700;
+  text-wrap: balance;
+  position: relative;
+  padding-inline: .25rem;
+}
+.qc-text::before{
+  /* decorative opening mark */
+  content: "“";
+  position: absolute;
+  left: -0.3ch;
+  top: -0.2em;
+  font-size: 3.5em;
+  line-height: 1;
+  color: rgba(255,255,255,0.18);
+  pointer-events: none;
+}
+.qc-text::after{
+  /* accent underline */
+  content:"";
+  display:block;
+  width: 82px;
+  height: 4px;
+  margin: .75rem auto 0;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Attribution */
+.qc-credit{
+  margin: .75rem auto 0;
+  max-width: var(--quote-maxw);
+  font-size: clamp(.95rem, calc(1.2vw + .4rem), 1.15rem);
+  opacity: .9;
+}
+.qc-name{ font-variant-caps: all-small-caps; letter-spacing: .04em; }
+.qc-meta{ opacity: .85; font-weight: 500; }
+
+
+
+/* Alignment helpers if you prefer left/right */
+.text-left .qc-text::after, .text-start .qc-text::after { margin-left: 0; margin-right: auto; }
+.text-right .qc-text::after, .text-end .qc-text::after { margin-left: auto; margin-right: 0; }
+
+/* Optional: softened top/bottom edges (remove if not desired) */
+.quote-callout::before,
+.quote-callout::after{
+  content:""; position:absolute; left:0; right:0; height:36px; z-index: 1;
+  pointer-events:none;
+}
+.quote-callout::before{ top:-1px; background: linear-gradient(to bottom, rgba(0,0,0,.2), transparent); }
+.quote-callout::after{  bottom:-1px; background: linear-gradient(to top, rgba(0,0,0,.2), transparent); }
+
+/* Curved TOP edge (concave dip into the section) using clip-path */
+.quote-callout .qc-bg{
+  /* Modern browsers: precise Bezier curve */
+  clip-path: path("M 0 0 Q 50% var(--curve-depth) 100% 0 L 100% 100% L 0 100% Z");
+}
+
+/* Fallback for older engines: mask with an ellipse notch */
+@supports not (clip-path: path("M0 0, 100% 0")) {
+  .quote-callout .qc-bg{
+    /* Hide a small ellipse at the top center to create the dip */
+    -webkit-mask-image: radial-gradient(120% 180% at 50% 0,
+      transparent calc(var(--curve-depth) - 1px), #fff var(--curve-depth));
+            mask-image: radial-gradient(120% 180% at 50% 0,
+      transparent calc(var(--curve-depth) - 1px), #fff var(--curve-depth));
+    -webkit-mask-composite: source-over; /* Safari */
+            mask-composite: add;
+  }
+}
+
+/* Keep logos contained and centered inside uniform tiles */
+.object-fit-contain { object-fit: contain; }
+
+/* Optional polish: grayscale by default, color on hover */
+.logos .logo-img{
+  --logo-sat: 0;
+  --logo-op: .95;
+  //filter: saturate(var(--logo-sat)) opacity(var(--logo-op));
+  transition: filter .2s ease, opacity .2s ease, transform .2s ease;
+}
+.logos a:hover .logo-img{
+  // filter: grayscale(0%);
+  --logo-sat: 1;
+  --logo-op: 1;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Ensure images crop nicely inside the square tiles */
+.object-fit-cover { object-fit: cover; }
+
+.team-grid .card{
+  transition: transform .2s ease, box-shadow .2s ease;
+  will-change: transform;
+}
+.team-grid .card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .team-grid .card{ transition: none; }
+  .team-grid .card:hover{ transform: none; box-shadow: none; }
+}

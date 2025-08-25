@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">CARRE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ms-lg-auto">
+        <!-- <li class="nav-item"><a class="nav-link" href="{{ site.url }}{{ site.baseurl }}/about">About</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="{{ site.url }}{{ site.baseurl }}/team">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ site.url }}{{ site.baseurl }}/research">Research</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ site.url }}{{ site.baseurl }}/publications">Publications</a></li>
+      </ul>
+      <form id="navSearchForm"
+      class="search-form d-flex align-items-center ms-2 my-2 my-lg-0"
+      role="search"
+      action="{{ site.baseurl }}/search/"
+      method="get">
+        <input class="form-control form-control-sm search-input"
+              type="search"
+              name="q"
+              placeholder="Search…"
+              aria-label="Search"
+              autocomplete="off">
+        <button type="button"
+                class="btn nav-link px-2 search-toggle shadow-none"
+                aria-label="Toggle search"
+                aria-expanded="false">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

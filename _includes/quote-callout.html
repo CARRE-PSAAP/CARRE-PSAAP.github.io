@@ -1,0 +1,34 @@
+{% assign s = include.section | default: include %}
+<section
+  id="{{ s.id | default: 'quote' }}"
+  class="quote-callout position-relative overflow-hidden {{ s.mt }} {{ s.mb }}"
+  aria-labelledby="{{ s.id | default: 'quote' }}-text"
+  style="
+    --quote-bg: {{ s.bg | default: '#0b1b2b' }};
+    --quote-overlay: {{ s.overlay | default: 'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.75) 100%)' }};
+    --quote-image: {% if s.bg_image %}url('{{ s.bg_image | relative_url }}'){% else %}none{% endif %};
+    --quote-color: {{ s.color | default: '#ffffff' }};
+    --accent: {{ s.accent | default: '#e8552b' }};
+    --quote-maxw: {{ s.max_width | default: '48ch' }};
+    --quote-align: {{ s.align | default: 'center' }};
+    --quote-pad-y: {{ s.py | default: '4rem' }};
+    --curve-depth: {{ s.curve_depth | default: '12%' }};
+  "
+  data-bg="{% if s.bg_image %}image{% else %}color{% endif %}"
+>
+  <div class="qc-bg"></div>
+
+  <div class="container position-relative z-1" style="padding-block: var(--quote-pad-y)">
+    <figure class="m-0">
+      <blockquote id="{{ s.id | default: 'quote' }}-text"
+                  class="qc-text text-{{ s.align | default: 'center' }}">
+        {{ s.text }}
+      </blockquote>
+
+      <figcaption class="qc-credit text-{{ s.align | default: 'center' }}">
+        — <span class="qc-name">{{ s.attribution }}</span>
+        <span class="qc-name d-block">{{ s.meta }}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
