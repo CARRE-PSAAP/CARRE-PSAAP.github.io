@@ -96,7 +96,7 @@ transport:
   trail: "#e8552b"
   glow: "rgba(232,85,43,.28)"
   particles: 50          # primaries (children spawn dynamically)
-  speed: 0.8
+  speed: 0.5
   aimspread: 0.12      # tighter = more obvious scatter effect
   scatterdeg: 18       # entry angle jitter in degrees, try 12–25
   #scatter: 0.22          # entry angle jitter in radians (0.2-0.45)

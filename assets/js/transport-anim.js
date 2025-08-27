@@ -6,9 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = cnv.getContext('2d');
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
 
+    let lastTS = performance.now();
+    let running = true; // start true; IO will flip it later
+
+    const num = (v, d) => {
+        const n = parseFloat(v);
+        return Number.isFinite(n) ? n : d;
+    };
+
     const particlesBase = +container.dataset.particles || 140;
     const speedBase = +container.dataset.speed || 1.0;
-    const scatter = +container.dataset.scatter || 0.20;
     const shape = (container.dataset.shape || 'chip').toLowerCase();
 
     const spawnMode = (container.dataset.spawn || 'left').toLowerCase();
@@ -33,9 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const speedLoss       = +container.dataset.speedloss || 0.88;
 
     // scatter: allow radians (back-compat) or degrees via scatterdeg
-    const scatterRaw  = container.dataset.scatter ?? '0.20';
-    const scatterDeg  = +container.dataset.scatterdeg || 0;
-    const scatterRad  = scatterDeg ? (scatterDeg * Math.PI / 180) : (+scatterRaw || 0);
+    const scatterDeg = +container.dataset.scatterdeg || 0;
+    const scatterRad = scatterDeg
+        ? (scatterDeg * Math.PI / 180)
+        : (+container.dataset.scatter || 0.20);
 
     // how wide we randomize the target point inside the object (0..0.5 typical)
     const aimSpread   = +container.dataset.aimspread || 0.18;  // fraction of w/h
@@ -44,15 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // heat bloom
     const heatOn    = (container.dataset.heat ?? '1') !== '0';
     const heatColor = container.dataset.heatcolor || '#ff7a4f';
-    const heatAlpha = +container.dataset.heatalpha || 0.9;
-    const heatMaxR  = +container.dataset.heatmaxr || 22;
-    const heatDecay = +container.dataset.heatdecay || 0.92;
+    const heatAlpha = num(container.dataset.heatalpha, 0.9);
+    const heatMaxR  = num(container.dataset.heatmaxr, 22);
+    const heatDecay = num(container.dataset.heatdecay, 0.92);
+    const heatGrow  = num(container.dataset.heatgrow, 0.9);
 
     // storage for active heat blooms
     const HEAT = [];
 
 
-    let W = 0, H = 0, running = !prefersReduced;
+    let W = 0, H = 0;
 
     const css = (v, fb) => (getComputedStyle(container).getPropertyValue(v).trim() || fb);
     const colors = {
@@ -72,7 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
       cnv.height = Math.floor(H * DPR);
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
-    resize();
+    resize();                // set W/H & canvas backing store
+    const P = [];
+    for (let i = 0; i < ( +container.dataset.particles || 140 ); i++) {
+        P.push(spawnPrimary()); // now uses fresh W/H and scatterRad
+    }
+    requestAnimationFrame(tick);
     window.addEventListener('resize', resize);
 
     // Is (x,y) inside a rounded-rect defined by g = {x,y,w,h,r} ?
@@ -224,11 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return color;
     }
 
-
-
-    // Particle population
-    const P = [];
-
     function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
     function spawnPrimary() {
@@ -305,13 +314,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pause off-screen
     let observer;
     if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { running = e.isIntersecting && !prefersReduced; });
-      }, { threshold: 0.05 });
-      observer.observe(container);
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { running = e.isIntersecting && !prefersReduced; });
+        }, { threshold: 0, rootMargin: '100px' }); // easier to “intersect”
+        io.observe(container);
     }
 
-    function drawTrails(g){
+    function drawTrails(g, fscale){
         const NEXT = [];
         const stepAlphaSpace  = 0.45;
         const stepAlphaInside = 0.9;
@@ -321,15 +330,14 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0, n = P.length; i < n; i++) {
             const p = P[i];
 
-            // integrate
-            p.age += 1;
-            p.x += p.vx;
-            p.y += p.vy;
+            // integrate (per-frame → time-scaled)
+            p.age += fscale;                 // if you compare to life later
+            p.x += p.vx * fscale;
+            p.y += p.vy * fscale;
 
-            const step = Math.hypot(p.vx, p.vy);
+            const step = Math.hypot(p.vx, p.vy) * fscale;  // path length this frame
             const insideNow = insideObj(g, p.x, p.y);
 
-            // in-object interaction?
             // in-object interaction?
             if (insideNow && Math.random() < (1 - Math.exp(-step / mfp))) {
                 const canBranch = (p.gen < GEN_MAX) && (NEXT.length + (n - i) < MAXN);
@@ -362,29 +370,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // recycle if old or way out of view
             if (p.x > W + 80 || p.y < -80 || p.y > H + 80 || p.age > p.life) {
-            NEXT.push(spawnPrimary());
-            continue;
+                NEXT.push(spawnPrimary());
+                continue;
             }
 
-            // draw trail (outside vs inside alpha)
+            // draw trail; scale the segment offsets so tail length is fps-stable
+            const dxSeg = p.vx * fscale;
+            const dySeg = p.vy * fscale;
+
             ctx.lineWidth = p.w;
             for (let k = 0; k < trailSegs; k++) {
-            const f  = k / trailSegs;
-            const x2 = p.x - p.vx * k;
-            const y2 = p.y - p.vy * k;
-            const x1 = p.x - p.vx * (k + 1);
-            const y1 = p.y - p.vy * (k + 1);
+                const f  = k / trailSegs;
+                const x2 = p.x - dxSeg * k;
+                const y2 = p.y - dySeg * k;
+                const x1 = p.x - dxSeg * (k + 1);
+                const y1 = p.y - dySeg * (k + 1);
 
-            const mx = (x1 + x2) * 0.5;
-            const my = (y1 + y2) * 0.5;
-            const inSeg = insideObj(g, mx, my);
+                const mx = (x1 + x2) * 0.5, my = (y1 + y2) * 0.5;
+                const inSeg = insideObj(g, mx, my);
 
-            ctx.globalAlpha = (inSeg ? stepAlphaInside : stepAlphaSpace) * (1 - f);
-            ctx.strokeStyle = colors.trail;
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
+                ctx.globalAlpha = (inSeg ? stepAlphaInside : stepAlphaSpace) * (1 - f);
+                ctx.strokeStyle = colors.trail;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
             }
             ctx.globalAlpha = 1;
 
@@ -397,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Array.prototype.push.apply(P, NEXT);
     }
 
-    function drawHeat(g){
+    function drawHeat(g, fscale){
         if (!HEAT.length) return;
         ctx.save();
         ctx.clip(g.path);                          // keep heat inside the object
@@ -405,18 +415,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = HEAT.length - 1; i >= 0; i--){
             const h = HEAT[i];
-            h.r = Math.min(h.maxR, h.r + 0.9);       // expand a bit each frame
-            h.alpha *= heatDecay;                    // fade
+            h.r = Math.min(h.maxR, h.r + heatGrow * fscale);   // expand a bit each frame
+            h.alpha *= Math.pow(heatDecay, fscale);            // fade
             if (h.alpha < 0.02) { HEAT.splice(i,1); continue; }
 
             const grad = ctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, h.r);
             grad.addColorStop(0.00, withAlpha(heatColor, Math.min(1, h.alpha)));
             grad.addColorStop(0.35, withAlpha(heatColor, Math.min(1, h.alpha*0.55)));
             grad.addColorStop(1.00, withAlpha(heatColor, 0));
-
             ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.arc(h.x, h.y, h.r, 0, Math.PI*2);
+            ctx.beginPath(); 
+            ctx.arc(h.x, h.y, h.r, 0, Math.PI*2); 
             ctx.fill();
         }
 
@@ -426,24 +435,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function tick() {
-      if (!running) { requestAnimationFrame(tick); return; }
+        const now = performance.now();
+        // dt in seconds; clamp so tab switches don’t explode motion
+        let dt = (now - lastTS) / 1000;
+        if (!isFinite(dt) || dt <= 0) dt = 1/60;
+        dt = Math.min(dt, 0.05); // <= 50 ms
+        lastTS = now;
+
+        // 1.0 at 60fps; 0.5 at 120fps; freeze motion when not running
+        const fscale = (running ? dt : 0) * 60;
       
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0); // in case devicePixelRatio changed
-      ctx.clearRect(0, 0, W, H);
+        try {
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0); // in case devicePixelRatio changed
+            ctx.clearRect(0, 0, W, H);
 
-      const g = objectPath();
-
-      // Draw object first (so trails show both in space and inside)
-      drawObject(g);
-
-      drawTrails(g);// particles (inside + space)
-      drawHeat(g);  // absorption blooms (on top)
-       
-      ctx.globalAlpha = 1;
-      ctx.globalCompositeOperation = 'source-over';
-      requestAnimationFrame(tick);
+            const g = objectPath();
+            drawObject(g);
+            drawTrails(g, fscale);// particles (inside + space)
+            drawHeat(g, fscale);  // absorption blooms (on top)
+        } catch (e) {
+            console.error('[transport-anim] frame error:', e);
+            // optional: pause on repeated errors
+            // if (++errCount > 5) running = false;
+        } finally {
+            ctx.globalAlpha = 1;
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(tick);
+        }
     }
-
-    if (running) requestAnimationFrame(tick);
   });
 });
