@@ -1,6 +1,17 @@
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-white" data-bs-theme="light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">CARRE</a>
+    <!-- Brand logo -->
+    <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}" aria-label="CARRE">
+      <img
+        src="{{ '/assets/images/CARRE-logo.jpg' | relative_url }}"
+        alt="CARRE"
+        class="brand-logo"
+        height="44"
+        width="auto"
+      />
+      <span class="visually-hidden">CARRE</span>
+    </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

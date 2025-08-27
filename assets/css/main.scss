@@ -237,9 +237,11 @@
 .navbar .search-form { position: relative; }
 /* default: no outline/border/shadow */
 .navbar .search-toggle{
+  background: none;
   border: 0;
   box-shadow: none;
   outline: none;
+  line-height: 1;
   color: var(--bs-navbar-color);                /* default text color */
 }
 
@@ -247,7 +249,6 @@
   color: var(--bs-navbar-hover-color);
   text-decoration: none;
 }
-
 .navbar .search-form.open .search-toggle,
 .navbar .search-toggle:focus{
   box-shadow: none;
@@ -261,8 +262,8 @@
   padding-left: 0;
   padding-right: 0;
   border: 0;
-  background: rgba(255,255,255,.15);
-  color: #fff;
+  background: rgba(0,0,0,.04);
+  color: inherit;
   transition: width .25s ease, opacity .2s ease, padding .25s ease, border-color .25s;
 }
 
@@ -271,9 +272,12 @@
   opacity: 1;
   padding-left: .75rem;
   padding-right: .75rem;
-  border: 1px solid var(--bs-border-color-translucent);
+  border: 1px solid var(--bs-border-color);
   margin-right: .25rem;
   border-radius: .375rem;
+}
+.navbar[data-bs-theme="light"] .search-input::placeholder{
+  color: rgba(0,0,0,.55);
 }
 
 .navbar[data-bs-theme="dark"] .search-input::placeholder{
@@ -282,7 +286,7 @@
 
 /* keep an accessible ring for keyboard users only */
 .navbar .search-toggle:focus-visible{
-  outline: 2px solid rgba(255,255,255,.7);
+  outline: 2px solid rgba(0,0,0,.3);
   outline-offset: 2px;
   border-radius: .375rem;
 }
@@ -418,4 +422,27 @@
 @media (prefers-reduced-motion: reduce){
   .team-grid .card{ transition: none; }
   .team-grid .card:hover{ transform: none; box-shadow: none; }
+}
+
+/* Taller navbar */
+.navbar{
+  --bs-navbar-padding-y: 0.9rem;     /* default ~.5rem; raise to taste */
+}
+
+/* Brand logo sizing (tweak the heights to taste) */
+.navbar .brand-logo{
+  height: var(--brand-h, 44px);
+  width: auto;
+  display: block;
+}
+@media (min-width: 992px){
+  .navbar .brand-logo{ --brand-h: 44px; }
+}
+
+/* Optional: subtle divider/shadow under the white bar */
+.navbar.bg-white{ position: relative; box-shadow: none; border-bottom: 0; }
+.navbar.bg-white::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:12px;
+  pointer-events:none;
+  background: linear-gradient(to bottom, rgba(0,0,0,.08), transparent);
 }
