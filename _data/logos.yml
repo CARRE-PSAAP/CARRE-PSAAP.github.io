@@ -3,7 +3,7 @@
   url: https://oregonstate.edu
   alt: "Oregon State University"
 - name: "Vanderbilt University"
-  src: /assets/images/logos/vanderbilt-logo.svg
+  src: /assets/images/logos/vanderbilt-logo.png
   url: https://www.vanderbilt.edu
   alt: "Vanderbilt University"
 - name: "North Carolina State University"
@@ -19,7 +19,7 @@
   url: https://www.nd.edu
   alt: "University of Notre Dame"
 - name: "Seattle University"
-  src: /assets/images/logos/su-logo.png
+  src: /assets/images/logos/seattle-university-logo.svg
   url: https://www.seattleu.edu
   alt: "Seattle University"
 - name: "University of California, Berkeley"

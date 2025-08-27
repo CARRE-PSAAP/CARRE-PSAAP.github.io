@@ -431,12 +431,12 @@
 
 /* Brand logo sizing (tweak the heights to taste) */
 .navbar .brand-logo{
-  height: var(--brand-h, 44px);
+  height: var(--brand-h, 52px);
   width: auto;
   display: block;
 }
 @media (min-width: 992px){
-  .navbar .brand-logo{ --brand-h: 44px; }
+  .navbar .brand-logo{ --brand-h: 52px; }
 }
 
 /* Optional: subtle divider/shadow under the white bar */
