@@ -83,10 +83,50 @@ logos:
   title: "Collaborating Institutions"
   mt: "mt-5"    # optional spacing above
   ratio: "75%" # taller tiles (bigger logos). Try 85%–100%
+# transport animation
+transport:
+  shape: "chip"     # slab | chip 
+  chip_shape: "square"
+  spawn: "top"
+  height: "360px"
+  bg: "#0b1b2b"
+  object: "#10283d"
+  layer: "#1a3a55"
+  pin: "#91a6b5"
+  trail: "#e8552b"
+  glow: "rgba(232,85,43,.28)"
+  particles: 50          # primaries (children spawn dynamically)
+  speed: 0.8
+  aimspread: 0.12      # tighter = more obvious scatter effect
+  scatterdeg: 18       # entry angle jitter in degrees, try 12–25
+  #scatter: 0.22          # entry angle jitter in radians (0.2-0.45)
+  # inside object
+  mfp: 100                 # mean free path (px) inside object
+  absorb: 0.1            # absorption probability on interaction
+  genmax: 2               # allow up to two generations
+  interact_scatter: 0.15
+  speedloss: 0.9
+  secondary: 1.2          # average # of children
+  secondary_spread: 0.65  # radians; larger = more spray
+  energy_decay: 0.65      # children are slower/shorter-lived
+  width_decay: 0.75       # children have thinner tracks
+  max_particles: 420      # hard cap for performance
+  pins: 12
+  pin_length: 16
+  pin_width: 3
+  # absorption heat blooms
+  heat_color: "#ff9465"     # warmer tint
+  heat_alpha: 0.85          # initial intensity
+  heat_maxr: 10             # max bloom radius (px)
+  heat_decay: 0.88          # slower fade (0.85–0.95)
 ---
 
 <div markdown="0">
 {% include hero.html hero=page.hero %}
+</div>
+
+<div markdown="0">
+{% include transport-anim.html section=page.transport %}
 </div>
 
 <div class="row g-4 align-items-stretch" markdown="0">

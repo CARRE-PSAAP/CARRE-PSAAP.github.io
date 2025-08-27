@@ -1,0 +1,70 @@
+{% assign s = include.section | default: include %}
+<section class="transport-band {{ s.mt }} {{ s.mb }}"
+  style="
+    --bg: {{ s.bg | default: '#0b1b2b' }};
+    --object: {{ s.object | default: '#112436' }};
+    --layer: {{ s.layer | default: '#1b3b57' }};
+    --pin: {{ s.pin | default: '#9db1c1' }};
+    --trail: {{ s.trail | default: '#e8552b' }};
+    --glow: {{ s.glow | default: 'rgba(232,85,43,.35)' }};
+    --h: {{ s.height | default: '320px' }};
+  ">
+
+    <!-- slab | chip -->
+  <div class="transport-anim"
+    data-shape="{{ s.shape | default: 'slab' }}"
+    data-particles="{{ s.particles | default: 140 }}"
+    data-speed="{{ s.speed | default: 1.0 }}"
+    data-scatter="{{ s.scatter | default: 0.22 }}"
+    data-height="{{ s.height | default: '320' }}"
+    data-pins="{{ s.pins | default: 12 }}"
+    data-pinlen="{{ s.pin_length | default: 14 }}"
+    data-pinwidth="{{ s.pin_width | default: 3 }}"
+
+    data-aimspread="0.12"
+    data-scatterdeg="18"
+
+       
+    data-mfp="{{ s.mfp | default: 90 }}"
+    data-absorb="{{ s.absorb | default: 0.35 }}"
+    data-secondary="{{ s.secondary | default: 1.6 }}"
+    data-secspread="{{ s.secondary_spread | default: 0.55 }}"
+    data-energydecay="{{ s.energy_decay | default: 0.65 }}"
+    data-widthdecay="{{ s.width_decay | default: 0.75 }}"
+    data-maxn="{{ s.max_particles | default: 420 }}"
+
+    data-genmax="2"
+    data-interactscatter="0.25"
+    data-speedloss="0.88"
+
+
+    data-spawn="{{ s.spawn | default: 'left' }}"         
+    data-chipshape="{{ s.chip_shape | default: 'rect' }}"
+
+    data-heat="1"
+    data-heatcolor="{{ s.heat_color | default: '#ff7a4f' }}"
+    data-heatalpha="{{ s.heat_alpha | default: 0.9 }}"
+    data-heatmaxr="{{ s.heat_maxr | default: 22 }}"
+    data-heatdecay="{{ s.heat_decay | default: 0.92 }}"
+    >
+    <!-- spawn: 'left' | 'right' | 'top' | 'bottom' | 'edges' -->
+    <!-- chipshape: 'rect' | 'square' -->
+    <canvas></canvas>
+
+    <!-- Fallback if JS is disabled -->
+    <noscript>
+      <svg viewBox="0 0 1200 400" width="100%" height="auto" role="img" aria-label="Particles through layered material">
+        <rect width="1200" height="400" fill="#0b1b2b"/>
+        <rect x="220" y="70" width="760" height="260" rx="28" fill="#112436" stroke="#1b3b57" stroke-width="2"/>
+        <g stroke="#1b3b57" stroke-width="1" opacity="0.8">
+          <line x1="220" y1="140" x2="980" y2="140"/><line x1="220" y1="200" x2="980" y2="200"/><line x1="220" y1="260" x2="980" y2="260"/>
+        </g>
+        <g stroke="#e8552b" stroke-width="3" stroke-linecap="round" opacity="0.7">
+          <path d="M 60 110 C 160 120, 220 140, 300 150" />
+          <path d="M 60 190 C 160 180, 220 200, 300 210" />
+          <path d="M 60 250 C 160 240, 220 260, 300 270" />
+        </g>
+      </svg>
+    </noscript>
+  </div>
+</section>

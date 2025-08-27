@@ -446,3 +446,27 @@
   pointer-events:none;
   background: linear-gradient(to bottom, rgba(0,0,0,.08), transparent);
 }
+
+
+/* transport animation */
+.transport-band{
+  background: var(--bg);
+  padding: clamp(20px, 4vw, 36px) 0;
+}
+.transport-anim{
+  height: var(--h, 320px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+.transport-anim canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* motion-safe */
+@media (prefers-reduced-motion: reduce){
+  .transport-anim{ box-shadow: none; }
+}
