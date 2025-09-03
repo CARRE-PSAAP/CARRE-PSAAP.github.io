@@ -182,7 +182,7 @@
 
 - name: "This could be you !"
   photo: bio-photo.png
-  title: See <a href="http://www.allanlab.org/vacancies">openings</a> for more info
+  title: See <a href="/vacancies">openings</a> for more info
   affiliation: 
   email: Todd.Palmer@oregonstate.edu
   number_educ: 0
