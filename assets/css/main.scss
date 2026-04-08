@@ -470,3 +470,17 @@
 @media (prefers-reduced-motion: reduce){
   .transport-anim{ box-shadow: none; }
 }
+
+table td:nth-child(odd),
+table th:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+table td:nth-child(even),
+table th:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+table, td, th {
+  border: none;
+}
