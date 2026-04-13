@@ -10,17 +10,17 @@
   education2: M.S. Nuclear Engineering, Oregon State University (1988)
   education3: B.S. Nuclear Engineering, Oregon State University (1987)
 
-- name: Robert Reed
-  photo: robert-reed.jpg
-  title: CARRE Deputy Director
-  job: Professor, Electrical and Computer Engineering
+- name: James Trippe
+  photo: james-trippe.png
+  title: CARRE Deputy Director, Experimental Design and Execution Lead
+  job: Senior Staff Researcher, Vanderbilt Institute for Space Defense & Electronics
   affiliation: Vanderbilt University
-  link: https://www.vanderbilt.edu/vinse/personnel/?bio=robert%20reed
-  email: robert.reed@vanderbilt.edu
-  number_educ: 3
-  education1: Ph.D., Clemson University
-  education2: M.S., Clemson University
-  education3: B.S., East Tennessee State University
+  link: https://www.linkedin.com/in/james-trippe-b18065325/
+  email: James.m.trippe@vanderbilt.edu
+  number_educ: 0
+  #education1: PhD, Mathematical and Physical Sciences, Institute for Mathematical Modeling, Russian Academy of Sciences (1993)
+  #education2: MS, Physics, Moscow Institute of Physics and Technology (1985)
+
 
 - name: Kyle Niemeyer
   photo: kyle-niemeyer.jpg
@@ -44,17 +44,6 @@
   number_educ: 2
   education1: PhD, Mathematical and Physical Sciences, Institute for Mathematical Modeling, Russian Academy of Sciences (1993)
   education2: MS, Physics, Moscow Institute of Physics and Technology (1985)
-
-- name: James Trippe
-  photo: james-trippe.png
-  title: Experimental Design and Execution Lead
-  job: Senior Staff Researcher, Vanderbilt Institute for Space Defense & Electronics
-  affiliation: Vanderbilt University
-  link: https://www.linkedin.com/in/james-trippe-b18065325/
-  email: James.m.trippe@vanderbilt.edu
-  number_educ: 0
-  #education1: PhD, Mathematical and Physical Sciences, Institute for Mathematical Modeling, Russian Academy of Sciences (1993)
-  #education2: MS, Physics, Moscow Institute of Physics and Technology (1985)
 
 - name: Lizhong Chen
   photo: lizhong-chen.jpg
@@ -91,6 +80,18 @@
   education1: Ph.D., Nuclear Engineering, University of California Berkeley, (2017)
   education2: M.S., Nuclear Engineering, University of California Berkeley, (2013)
   education3: B.S., Nuclear Engineering, Oregon State University (2011)
+
+- name: Robert Reed
+  photo: robert-reed.jpg
+  title: Co-PI
+  job: Professor, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  link: https://www.vanderbilt.edu/vinse/personnel/?bio=robert%20reed
+  email: robert.reed@vanderbilt.edu
+  number_educ: 3
+  education1: Ph.D., Clemson University
+  education2: M.S., Clemson University
+  education3: B.S., East Tennessee State University
 
 - name: Sankdaran Mahadevan
   photo: sankdaran-mahadevan.jpg
