@@ -18,6 +18,13 @@
     url: https://doi.org/10.1080/23324309.2026.2618791
     display: Journal of Computational and Theoretical Transport (2026), in press. Preprint arXiv:2510.00152
 
+- title: "Compressed Sensing for Memory Reduction in Monte Carlo Simulations"
+  authors: E. Lame, C. J. Palmer, T. S. Palmer, and I. Variansyah
+  year: 2026
+  link:
+    url: https://doi.org/10.1080/23324309.2026.2628659
+    display: Journal of Computational and Theoretical Transport (2026), in press
+
 - title: "Hybrid Two-Level Transport Method with Solution Decomposition in Macro and Micro Components"
   authors: C. A. Shaw and D. Y. Anistratov
   year: 2026
@@ -37,6 +44,24 @@
   year: 2026
   link:
     display: Computer Science Research Institute Summer Proceedings 2026, Technical Report, Sandia National Laboratories (2026), to appear
+
+- title: "Heavy-Ion Calibrated Wide-Bandgap Single-Event Burnout Model for SiC Terrestrial Neutron and Space Environment Rate Predictions"
+  authors: K. B. Cantrell, D. R. Ball, S. L. Kosier, J. T. Vielmette, B. D. Sierawski, R. A. Reed, L. W. Massengill, R. D. Schrimpf, and J. M. Trippe
+  year: 2026
+  link:
+    display: Conference on Radiation and Its Effects on Components and Systems (RADECS 2026)
+
+- title: "Dose Enhancement Effects in Nanometer-Scale Technologies"
+  authors: E. Wong, B. M. Dodd, C. A. Champagne, K. B. Cantrell, J. A. Paciaroni, D. R. Ball, S. L. Kosier, M. D. Hu, R. A. Reed, B. D. Sierawski, D. M. Fleetwood, R. D. Schrimpf, and J. M. Trippe
+  year: 2026
+  link:
+    display: IEEE Transactions on Nuclear Science (from IEEE Nuclear & Space Radiation Effects Conference, NSREC 2026), submitted
+
+- title: "Multi-Physics Modeling of Extreme Single-Particle Damage Events in Silicon Pixel Microvolumes"
+  authors: J. A. Paciaroni, G. Mayberry, C. A. Champagne, K. Wang, D. R. Ball, M. D. Hu, V. Goiffon, B. D. Sierawski, R. A. Reed, D. M. Fleetwood, R. D. Schrimpf, S. T. Pantelides, and J. M. Trippe
+  year: 2026
+  link:
+    display: IEEE Transactions on Nuclear Science, submitted
 
 - title: "Hybrid Macro-Micro Method with Maximum Entropy Approximation for Particle Transport Problems"
   authors: C. A. Shaw and D. Y. Anistratov
