@@ -33,7 +33,8 @@
             <h3 class="h6 mb-1">{{ p.name }}</h3>
             <div class="small text-secondary">{{ p.title }}</div>
             <div class="small text-secondary">{{ p.affiliation }}</div>
-            <div class="small text-secondary"><a href="mailto:{{ p.email }}">{{ p.email }}</a></div>
+            {% if p.advisor %}<div class="small text-secondary">{{ include.advisor_label | default: 'Advisor' }}: {{ p.advisor }}</div>{% endif %}
+            {% if p.email %}<div class="small text-secondary"><a href="mailto:{{ p.email }}">{{ p.email }}</a></div>{% endif %}
           </div>
         </div>
       </div>

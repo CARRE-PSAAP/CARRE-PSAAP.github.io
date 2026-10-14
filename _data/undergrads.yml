@@ -1,0 +1,38 @@
+# Undergraduate students, sorted by last name. Optional fields: photo, link, email.
+
+- name: Max Aguilar
+  title: Undergraduate Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Gunnar Ahn
+  title: Undergraduate Student, Computer Science
+  affiliation: Seattle University
+
+- name: Nathaniel Brundjar
+  title: Undergraduate Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+
+- name: Gunnar Larsen
+  title: Undergraduate Student, Computer Science
+  affiliation: Oregon State University
+  advisor: Lizhong Chen
+
+- name: Brady Lemke
+  title: Undergraduate Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Owen Poissant
+  photo: owen-poissant.jpg
+  title: Undergraduate Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Ryan Tiotuico
+  title: Undergraduate Student, Computer Science
+  affiliation: Seattle University
+
+- name: Katie Wang
+  title: Undergraduate Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University

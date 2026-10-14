@@ -1,11 +1,126 @@
-#- name:
-#  photo: rock.jpg
-#  info:
-#  email:
-#  number_educ:
-#  education1:
-#  education2:
-#  education3:
-#  education4:
+# Graduate students, sorted by last name. Optional fields: photo, link, email.
 
+- name: India Allan
+  photo: india-allan.jpg
+  title: PhD Student, Nuclear Engineering
+  affiliation: North Carolina State University
+  advisor: Dmitriy Anistratov
 
+- name: Kurt Cantrell
+  title: PhD Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  advisor: James Trippe
+
+- name: Aubrey Denico
+  title: PhD Student, Aerospace and Mechanical Engineering
+  affiliation: University of Notre Dame
+  advisor: Ryan McClarren
+
+- name: Melek Derman
+  photo: melek-derman.jpg
+  title: PhD Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Bryan Doan
+  title: PhD Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Cheng Fang
+  title: PhD Student, Civil and Environmental Engineering
+  affiliation: Vanderbilt University
+  advisor: Sankaran Mahadevan
+
+- name: Nathan Glaser
+  photo: nathan-glaser.png
+  title: PhD Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Madicken Munk
+
+- name: Kyle Hansen
+  photo: kyle-hansen.jpg
+  title: PhD Student, Nuclear Engineering
+  affiliation: North Carolina State University
+  advisor: Dmitriy Anistratov
+
+- name: Douglas Houser
+  photo: douglas-houser.jpg
+  title: MS Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Todd Palmer
+
+- name: Nathaniel Karom
+  title: PhD Student, Physics
+  affiliation: Vanderbilt University
+  advisor: Sharon Weiss
+
+- name: Wren Kawamura
+  title: PhD Student, Nuclear Engineering
+  affiliation: UC Berkeley
+  advisor: Daniel Siefman
+
+- name: Ethan Lame
+  photo: ethan-lame.jpg
+  title: PhD Student, Nuclear Science and Engineering
+  affiliation: Oregon State University
+  advisor: Camille Palmer
+
+- name: Jaime Landeros
+  photo: jaime-landeros.png
+  title: PhD Student, Mechanical and Aerospace Engineering
+  affiliation: UC San Diego
+  advisor: Boris Kramer
+
+- name: Grant Mayberry
+  photo: grant-mayberry.png
+  title: PhD Student, Physics
+  affiliation: Vanderbilt University
+  advisor: Sokrates Pantelides
+
+- name: Alex Mote
+  photo: alex-mote.png
+  title: PhD Student, Electrical Engineering and Computer Science
+  affiliation: Oregon State University
+  advisor: Lizhong Chen
+
+- name: Julian Paciaroni
+  photo: julian-paciaroni.jpg
+  title: PhD Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  advisor: James Trippe
+
+- name: Matthew Raffel
+  photo: matthew-raffel.png
+  title: PhD Student, Computer Science
+  affiliation: Oregon State University
+  advisor: Lizhong Chen
+
+- name: Caleb Shaw
+  photo: caleb-shaw.png
+  title: PhD Student, Nuclear Engineering
+  affiliation: North Carolina State University
+  advisor: Dmitriy Anistratov
+
+- name: Whittaker Theo
+  photo: whit-theo.jpg
+  title: PhD Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  advisor: James Trippe
+
+- name: Benjamin Ward
+  photo: ben-ward.jpg
+  title: PhD Student, Mechanical Engineering
+  affiliation: Vanderbilt University
+  advisor: Pranav Karve
+
+- name: Elliot Wong
+  photo: elliot-wong.jpg
+  title: PhD Student, Electrical and Computer Engineering
+  affiliation: Vanderbilt University
+  advisor: James Trippe
+
+- name: "This could be you !"
+  photo: bio-photo.png
+  title: See <a href="/vacancies">openings</a> for more info
+  email: Todd.Palmer@oregonstate.edu

@@ -25,7 +25,7 @@
 - name: Kyle Niemeyer
   photo: kyle-niemeyer.jpg
   title: Exascale Software Engineering Lead & Education Crosscut Co-Lead
-  job: Associate Professor, Mechanical Engineering
+  job: Professor, Mechanical Engineering
   affiliation: Oregon State University
   link: https://engineering.oregonstate.edu/people/kyle-niemeyer
   email: kyle.niemeyer@oregonstate.edu
@@ -180,13 +180,3 @@
   affiliation: UC San Diego
   link: https://www.sdsc.edu/research/experts/rodriguez_paul.html
   email: prodriguez@sdsc.edu
-
-- name: "This could be you !"
-  photo: bio-photo.png
-  title: See <a href="/vacancies">openings</a> for more info
-  affiliation: 
-  email: Todd.Palmer@oregonstate.edu
-  number_educ: 0
-  education1:
-  education2:
-  education3:
