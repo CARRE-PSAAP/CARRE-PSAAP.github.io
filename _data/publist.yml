@@ -25,6 +25,13 @@
     url: https://doi.org/10.1080/23324309.2026.2628659
     display: Journal of Computational and Theoretical Transport (2026), in press
 
+- title: "Developments in Domain Decomposition for Neutron Transport Problems on High Performance Computing Systems"
+  authors: A. Mote, T. S. Palmer, and L. Chen
+  year: 2026
+  link:
+    url: https://doi.org/10.1080/23324309.2026.2633375
+    display: Journal of Computational and Theoretical Transport (2026), in press
+
 - title: "Hybrid Two-Level Transport Method with Solution Decomposition in Macro and Micro Components"
   authors: C. A. Shaw and D. Y. Anistratov
   year: 2026
@@ -49,19 +56,25 @@
   authors: K. B. Cantrell, D. R. Ball, S. L. Kosier, J. T. Vielmette, B. D. Sierawski, R. A. Reed, L. W. Massengill, R. D. Schrimpf, and J. M. Trippe
   year: 2026
   link:
-    display: Conference on Radiation and Its Effects on Components and Systems (RADECS 2026)
+    display: IEEE Transactions on Nuclear Science, submitted
 
 - title: "Dose Enhancement Effects in Nanometer-Scale Technologies"
   authors: E. Wong, B. M. Dodd, C. A. Champagne, K. B. Cantrell, J. A. Paciaroni, D. R. Ball, S. L. Kosier, M. D. Hu, R. A. Reed, B. D. Sierawski, D. M. Fleetwood, R. D. Schrimpf, and J. M. Trippe
   year: 2026
   link:
-    display: IEEE Transactions on Nuclear Science (from IEEE Nuclear & Space Radiation Effects Conference, NSREC 2026), submitted
+    display: IEEE Transactions on Nuclear Science, submitted
 
 - title: "Multi-Physics Modeling of Extreme Single-Particle Damage Events in Silicon Pixel Microvolumes"
   authors: J. A. Paciaroni, G. Mayberry, C. A. Champagne, K. Wang, D. R. Ball, M. D. Hu, V. Goiffon, B. D. Sierawski, R. A. Reed, D. M. Fleetwood, R. D. Schrimpf, S. T. Pantelides, and J. M. Trippe
   year: 2026
   link:
     display: IEEE Transactions on Nuclear Science, submitted
+
+- title: "Stochastic Differential Equation Modeling of Charged Particle Transport in the Fokker-Planck and Boltzmann Fokker-Planck Approximations"
+  authors: N. Glaser, A. K. Prinja, and M. Munk
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
 
 - title: "Hybrid Macro-Micro Method with Maximum Entropy Approximation for Particle Transport Problems"
   authors: C. A. Shaw and D. Y. Anistratov
