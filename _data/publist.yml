@@ -2,8 +2,74 @@
 #   image: imageaward_edited.png
 #   description: Shot noise has been suggested for a long time as a tell-tale probe for Majorana bound states. We are the first to carry out local tunneling shot noise measurements on the putative vortex Majorana states.
 #   authors: J-F Ge, KM Bastiaans, D Chatzopoulos, D Cho, WO Tromp, T Benschop, J Niu, G Gu, MP Allan
+#   year: 2023
 #   link:
 #     url: https://www.nature.com/articles/s41467-023-39109-w
 #     display: Nature Communications 4, 3341 (2023)
 #   highlight: 1
 #   news2: See [news item](https://www.universiteitleiden.nl/en/news/2023/06/new-method-to-find-majoranas-tested-for-the-first-time) by Michelle Willebrands
+#
+# Entries are listed newest first; "year" is the year published or submitted.
+
+- title: "Hybrid Delta Tracking Schemes Using a Track-Length Estimator"
+  authors: J. P. Morgan, I. Variansyah, K. B. Clements, T. S. Palmer, and K. E. Niemeyer
+  year: 2026
+  link:
+    url: https://doi.org/10.1080/23324309.2026.2618791
+    display: Journal of Computational and Theoretical Transport (2026), in press. Preprint arXiv:2510.00152
+
+- title: "Hybrid Two-Level Transport Method with Solution Decomposition in Macro and Micro Components"
+  authors: C. A. Shaw and D. Y. Anistratov
+  year: 2026
+  link:
+    url: https://arxiv.org/abs/2607.01346
+    display: Transactions of the American Nuclear Society, vol. 135 (2026), to appear. Preprint arXiv:2607.01346
+
+- title: "Second-Moment Method for Transport Problems with Anisotropic Scattering"
+  authors: I. J. Allan and D. Y. Anistratov
+  year: 2026
+  link:
+    url: https://arxiv.org/abs/2607.03967
+    display: Transactions of the American Nuclear Society, vol. 135 (2026), to appear. Preprint arXiv:2607.03967
+
+- title: "Challenges in Multifidelity Best Linear Unbiased Estimators for Non-Deterministic Models"
+  authors: J. Landeros, G. Geraci, A. Olson, and B. Kramer
+  year: 2026
+  link:
+    display: Computer Science Research Institute Summer Proceedings 2026, Technical Report, Sandia National Laboratories (2026), to appear
+
+- title: "Hybrid Macro-Micro Method with Maximum Entropy Approximation for Particle Transport Problems"
+  authors: C. A. Shaw and D. Y. Anistratov
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
+
+- title: "Nonlinear Second-Moment Method with Anderson Acceleration for Particle Transport Problems with Anisotropic Scattering"
+  authors: I. J. Allan and D. Y. Anistratov
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
+
+- title: "A Two-Level Hybrid Quasi-Monte Carlo / Deterministic Method for Particle Transport with Variance Reduction"
+  authors: C. A. Shaw, D. Y. Anistratov, C. T. Kelley, and R. G. McClarren
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
+
+- title: "Implementation of Monte Carlo Photon Transport Capabilities in MC/DC Using Generative AI"
+  authors: D. W. Houser, T. S. Palmer, I. Variansyah, and J. A. Farmer
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
+
+- title: "A δ-Kernel Representation of the Generalized Fokker-Planck Operator for Charged-Particle Transport"
+  authors: M. Derman, A. K. Prinja, and T. S. Palmer
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted
+
+- title: "Statistical Models for Generative Monte Carlo Particle Transport"
+  authors: J. A. Farmer, J. Krotz, R. G. McClarren, and T. S. Palmer
+  year: 2026
+  link:
+    display: International Conference on Mathematics and Computational Methods Applied to Nuclear Science and Engineering (M&C 2027), submitted

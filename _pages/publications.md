@@ -9,8 +9,6 @@ permalink: /publications/
 
 # Publications
 
-To come.
-
 <!-- ## Group highlights -->
 
 <!-- **At the end of this page, you can find the [full list of publications and patents](#full-list-of-publications). All papers are also available on [arXiv](https://arxiv.org/search/?searchtype=author&query=Allan%2C+M+P).** -->
@@ -53,12 +51,15 @@ To come.
 
 <p> &nbsp; </p>
 
-<!-- 
-## Full List of publications -->
+{% assign pubs_by_year = site.data.publist | group_by: "year" %}
+{% for year in pubs_by_year %}
 
-{% for publi in site.data.publist %}
+## {{ year.name }}
+
+{% for publi in year.items %}
 
   {{ publi.title }} <br />
-  <em>{{ publi.authors }} </em><br /><a href="{{ publi.link.url }}">{{ publi.link.display }}</a>
+  <em>{{ publi.authors }} </em><br />{% if publi.link.url %}<a href="{{ publi.link.url }}">{{ publi.link.display }}</a>{% else %}{{ publi.link.display }}{% endif %}
 
+{% endfor %}
 {% endfor %}
