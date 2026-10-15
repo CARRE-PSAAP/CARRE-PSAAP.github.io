@@ -51,15 +51,44 @@ permalink: /publications/
 
 <p> &nbsp; </p>
 
-{% assign pubs_by_year = site.data.publist | group_by: "year" %}
-{% for year in pubs_by_year %}
+{% assign books = site.data.publist | where: "type", "book" %}
+{% if books.size > 0 %}
 
-## {{ year.name }}
+## Books
+
+{% for publi in books %}
+{% include pub-entry.html publi=publi %}
+{% endfor %}
+{% endif %}
+
+{% assign journals = site.data.publist | where: "type", "journal" %}
+{% if journals.size > 0 %}
+
+## Journal Articles
+
+{% assign journals_by_year = journals | group_by: "year" %}
+{% for year in journals_by_year %}
+
+### {{ year.name }}
 
 {% for publi in year.items %}
-
-  {{ publi.title }} <br />
-  <em>{{ publi.authors }} </em><br />{% if publi.link.url %}<a href="{{ publi.link.url }}">{{ publi.link.display }}</a>{% else %}{{ publi.link.display }}{% endif %}
-
+{% include pub-entry.html publi=publi %}
 {% endfor %}
 {% endfor %}
+{% endif %}
+
+{% assign others = site.data.publist | where_exp: "p", "p.type != 'book'" | where_exp: "p", "p.type != 'journal'" %}
+{% if others.size > 0 %}
+
+## Other Publications
+
+{% assign others_by_year = others | group_by: "year" %}
+{% for year in others_by_year %}
+
+### {{ year.name }}
+
+{% for publi in year.items %}
+{% include pub-entry.html publi=publi %}
+{% endfor %}
+{% endfor %}
+{% endif %}

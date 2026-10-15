@@ -1,0 +1,6 @@
+{% assign publi = include.publi %}
+<p>
+  {{ publi.title }} <br />
+  <em>{{ publi.authors }}</em><br />
+  {% if publi.link.url %}<a href="{{ publi.link.url }}">{{ publi.link.display }}</a>{% else %}{{ publi.link.display }}{% endif %}
+</p>

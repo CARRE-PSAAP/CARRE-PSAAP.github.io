@@ -10,8 +10,18 @@
 #   news2: See [news item](https://www.universiteitleiden.nl/en/news/2023/06/new-method-to-find-majoranas-tested-for-the-first-time) by Michelle Willebrands
 #
 # Entries are listed newest first; "year" is the year published or submitted.
+# "type: book" lists an entry under Books and "type: journal" under Journal Articles;
+# entries with no type (conference papers, reports, etc.) are listed under Other Publications.
+
+- title: "Graduate School in Applied Mathematics: Guide for Students and New Faculty"
+  type: book
+  authors: K. R. Kavanagh and C. T. Kelley
+  year: 2026
+  link:
+    display: SIAM, in production (expected Q1 2027)
 
 - title: "Hybrid Delta Tracking Schemes Using a Track-Length Estimator"
+  type: journal
   authors: J. P. Morgan, I. Variansyah, K. B. Clements, T. S. Palmer, and K. E. Niemeyer
   year: 2026
   link:
@@ -19,6 +29,7 @@
     display: Journal of Computational and Theoretical Transport (2026), in press. Preprint arXiv:2510.00152
 
 - title: "Compressed Sensing for Memory Reduction in Monte Carlo Simulations"
+  type: journal
   authors: E. Lame, C. J. Palmer, T. S. Palmer, and I. Variansyah
   year: 2026
   link:
@@ -26,6 +37,7 @@
     display: Journal of Computational and Theoretical Transport (2026), in press
 
 - title: "Developments in Domain Decomposition for Neutron Transport Problems on High Performance Computing Systems"
+  type: journal
   authors: A. Mote, T. S. Palmer, and L. Chen
   year: 2026
   link:
@@ -53,18 +65,21 @@
     display: Computer Science Research Institute Summer Proceedings 2026, Technical Report, Sandia National Laboratories (2026), to appear
 
 - title: "Heavy-Ion Calibrated Wide-Bandgap Single-Event Burnout Model for SiC Terrestrial Neutron and Space Environment Rate Predictions"
+  type: journal
   authors: K. B. Cantrell, D. R. Ball, S. L. Kosier, J. T. Vielmette, B. D. Sierawski, R. A. Reed, L. W. Massengill, R. D. Schrimpf, and J. M. Trippe
   year: 2026
   link:
     display: IEEE Transactions on Nuclear Science, submitted
 
 - title: "Dose Enhancement Effects in Nanometer-Scale Technologies"
+  type: journal
   authors: E. Wong, B. M. Dodd, C. A. Champagne, K. B. Cantrell, J. A. Paciaroni, D. R. Ball, S. L. Kosier, M. D. Hu, R. A. Reed, B. D. Sierawski, D. M. Fleetwood, R. D. Schrimpf, and J. M. Trippe
   year: 2026
   link:
     display: IEEE Transactions on Nuclear Science, submitted
 
 - title: "Multi-Physics Modeling of Extreme Single-Particle Damage Events in Silicon Pixel Microvolumes"
+  type: journal
   authors: J. A. Paciaroni, G. Mayberry, C. A. Champagne, K. Wang, D. R. Ball, M. D. Hu, V. Goiffon, B. D. Sierawski, R. A. Reed, D. M. Fleetwood, R. D. Schrimpf, S. T. Pantelides, and J. M. Trippe
   year: 2026
   link:
