@@ -20,6 +20,15 @@
   link:
     display: SIAM, in production (expected Q1 2027)
 
+
+- title: "High Energy Density Radiative Transfer: Theory and Computation"
+  type: book
+  authors: R. G. McClarren
+  year: 2027
+  link:
+    display: Elsevier
+    url: https://shop.elsevier.com/books/high-energy-density-radiative-transfer/mcclarren/978-0-443-40586-0?format=print
+
 - title: "Hybrid Delta Tracking Schemes Using a Track-Length Estimator"
   type: journal
   authors: J. P. Morgan, I. Variansyah, K. B. Clements, T. S. Palmer, and K. E. Niemeyer
